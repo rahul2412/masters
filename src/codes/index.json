@@ -1,0 +1,33 @@
+[
+    {
+       "code": "console.log(first)"
+            
+    },
+    {
+       "code": "console.log(second)"
+    },
+    {
+        "code": "console.log(third)"
+    },
+    {
+        "code": "console.log(fourth)"       
+    },
+    {
+        "code": "console.log(fifth)"
+    },
+    {
+        "code": "console.log(sixth)"
+    },
+    {
+        "code": "console.log(seventh)"
+    },
+    {
+        "code": "console.log(eigth)"
+    },
+    {
+        "code": "console.log(ninth)"
+    },
+    {
+        "code": "console.log(tenth)"
+    }
+]

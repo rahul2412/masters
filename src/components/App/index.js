@@ -13,9 +13,7 @@ export default class App extends Component {
   }
 
   handleChange = event => {
-    let filteredCodes = codes.filter(function (e) {
-      return e.code.includes(event.target.value);
-  });
+    let filteredCodes = codes.filter( e => e.code.includes(event.target.value));
     this.setState({ filteredCodes:filteredCodes })
   }
 

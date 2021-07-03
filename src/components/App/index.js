@@ -13,15 +13,14 @@ export default class App extends Component {
   }
 
   handleChange = event => {
-    let filteredCodes = codes.filter( e => e.code.includes(event.target.value));
+    let filteredCodes = codes.filter( e => e.code.toLowerCase().includes(event.target.value.toLowerCase()));
     this.setState({ filteredCodes:filteredCodes })
   }
 
   render() {
     return (
       <div>
-        <Input onChange={this.handleChange} />
-
+        <Input className="Searchbox" placeholder="Search Code ..." onChange={this.handleChange} />
         {
           this.state.filteredCodes.map(code => <li>{code.code}</li>)
         }

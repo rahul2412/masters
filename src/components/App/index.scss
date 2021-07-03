@@ -12,10 +12,16 @@ li {
     color: yellowgreen;
 }
 
-.Searchbox{
+.SearchBox {
     margin: auto;
     display: block;
     margin-top: 15px;
     margin-bottom: 25px;
     padding-left: 10px;
+    width: 300px;
+}
+
+.AddSnippet {
+    margin: auto;
+    display: block;
 }

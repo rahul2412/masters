@@ -3,6 +3,7 @@ import codes from '../../codes'
 import 'antd/dist/antd.css';
 import './index.scss'
 import { Input, Button, Modal, Alert } from 'antd';
+import { debounce } from 'lodash'
 
 export default class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class App extends Component {
       alertBox: false
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSearch = debounce(this.handleSearch.bind(this), 500); //for performance optimisation if number is too large
     this.handleCodeChange = this.handleCodeChange.bind(this);
     this.showModal = this.showModal.bind(this);
     this.handleOk = this.handleOk.bind(this);
@@ -45,11 +47,16 @@ export default class App extends Component {
     else this.setState({ isModalVisible: false });
   };
 
-  handleCancel = () => this.setState({ isModalVisible: false });
+  handleCancel = () => this.setState({ isModalVisible: false, modalCode: "" });
 
   handleChange = event => {
-    let filteredCodes = this.state.codeSnippets.filter(e => e.code.toLowerCase().includes(event.target.value.toLowerCase()));
-    this.setState({ filteredCodes: filteredCodes, searchedCode: event.target.value })
+    this.setState({ searchedCode: event.target.value })
+    this.handleSearch(event.target.value)
+  }
+
+  handleSearch = value => {
+    let filteredCodes = this.state.codeSnippets.filter(e => e.code.toLowerCase().includes(value.toLowerCase()));
+    this.setState({ filteredCodes: filteredCodes })
   }
 
   handleCodeChange = event => this.setState({ modalCode: event.target.value })
